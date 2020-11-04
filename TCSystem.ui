@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>600</height>
+    <height>580</height>
    </rect>
   </property>
   <property name="font">
@@ -391,9 +391,9 @@
    <widget class="QLabel" name="setTimeM1_5">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>80</y>
-      <width>111</width>
+      <x>470</x>
+      <y>60</y>
+      <width>101</width>
       <height>21</height>
      </rect>
     </property>
@@ -403,26 +403,19 @@
       <bold>true</bold>
      </font>
     </property>
-    <property name="layoutDirection">
-     <enum>Qt::RightToLeft</enum>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="tabletTracking">
+     <bool>false</bool>
     </property>
     <property name="text">
-     <string>Temperatura (ºC)</string>
+     <string>Temperature (ºC)</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>900</width>
-     <height>21</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
