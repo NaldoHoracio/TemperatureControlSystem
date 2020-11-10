@@ -1,5 +1,4 @@
 import sys
-from PyQt5 import QtGui
 from PyQt5 import uic, QtWidgets
 
 def mode_operation():
@@ -15,7 +14,7 @@ app_tcs = QtWidgets.QApplication([])
 
 window_tcs = uic.loadUi("TCSystem.ui")
 
-window_tcs.connButton.clicked.connect(mode_operation)
+window_tcs.connButton.clicked.connect(mode_operation) # Modo de operação
 
 window_tcs.show()
 
