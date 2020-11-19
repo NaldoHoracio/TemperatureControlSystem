@@ -1,5 +1,5 @@
 
-def is_valid_numer(temperature):
+def is_valid_temperature(temperature):
     try:
         float(temperature)
     except ValueError:
