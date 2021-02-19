@@ -1,51 +1,35 @@
-from PyQt5.QtWidgets import QGridLayout, QLabel, QGroupBox, \
-    QDialog, QComboBox, QDialogButtonBox, QFormLayout
-from PyQt5.QtGui import QIcon
-from serial.tools import list_ports
+# Ref: https://github.com/WaveShapePlay/ArduinoPyserialComConnect/blob/master/findArduino.py
 
-import util
+import serial.tools.list_ports
 
-import os
-import sys
+speed_port = [str(v) for v in [9600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200]]
 
-speed = [str(v) for v in [9600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200]]
+def get_ports():
+    # Function to return arduins ports
+    port_arduin = serial.tools.list_ports.comports()
+    return port_arduin
 
-class portWindow(QDialog):
+def find_arduin_port(found_ports):
+    # Function to Found ports in arduin
+    com_port = None
+    n_ports = len(found_ports)
 
-    def __init__(self, app, parent=None):
-        super(portWindow, self).__init__(parent)
-        self.app = app
+    for idx in range(0, n_ports):
+        port_ = found_ports[i]
+        str_port = str(port_)
 
-        button_box = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
-        button_box.accepted.connect(self.accept)
-        button_box.rejected.connect(self.reject)
+        if 'Arduino' in str_port:
+            split_port = str_port.split(' ')
+            com_port = (split_port[0])
 
-        self.setWindowTitle("Port Setting")
-        self.setWindowIcon(QIcon(util.resource_path('../icon/port.png')))
+    return com_port
 
-        self.buttons = QGroupBox()
+port_returned = get_ports()
 
-        grid = QGridLayout()
-        self.setLayout(grid)
+connect_to_port = find_arduin_port(port_returned)
 
-        portCbox = QComboBox()
-        found_ports = []
-        for port in list(list_ports.comports()):
-            found_ports.append(port.device)
-        portCbox.addItems(found_ports)
-        grid.addWidget(QLabel("Port: "), 1, 0, 1, 2)
-        grid.addWidget(portCbox, 1, 2, 1, 2)
-
-        speedCbox =QComboBox()
-        speedCbox.addItems(speed)
-        grid.addWidget(QLabel("Baud Rate: "), 3, 0, 1, 2)
-        grid.addWidget(speedCbox, 3, 2, 1, 2)
-
-        #need to debug
-        self.port = portCbox.currentText()
-        self.speed = float(speedCbox.currentText())
-
-        layout = QFormLayout()
-        layout.addWidget(button_box)
-        self.buttons.setLayout(layout)
-        grid.addWidget(self.buttons,4,0,1,4)
+if connect_to_port != None:
+    serial_port_arduin = serial.Serial(connect_to_port, baudrate=speed_port[0], timeout=1)
+    print('Connected to port ' + connect_to_port)
+else:
+    print("Problem to connect port!\nMake sure the arduino is connected!\n")

@@ -162,24 +162,37 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QCommandLinkButton" name="commandLinkButton">
+           <widget class="QPushButton" name="pushButton">
             <property name="minimumSize">
              <size>
-              <width>100</width>
+              <width>80</width>
               <height>40</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>100</width>
+              <width>80</width>
               <height>40</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">background-color:rgb(255, 255, 255)</string>
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
             </property>
             <property name="text">
-             <string>PortUSB</string>
+             <string>USB</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>imgs/usb_icon.jpg</normaloff>imgs/usb_icon.jpg</iconset>
             </property>
            </widget>
           </item>
@@ -227,6 +240,10 @@
             </property>
             <property name="text">
              <string>Connect</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>imgs/connect.png</normaloff>imgs/connect.png</iconset>
             </property>
            </widget>
           </item>
@@ -1109,12 +1126,12 @@
           <string notr="true">background-color: rgb(255, 255, 127);</string>
          </property>
          <property name="text">
-          <string>Start</string>
+          <string>Play</string>
          </property>
         </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QPushButton" name="pausePlay">
+        <widget class="QPushButton" name="pause">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -1139,7 +1156,7 @@
           <string notr="true">background-color: rgb(170, 255, 255)</string>
          </property>
          <property name="text">
-          <string>Pause/Play</string>
+          <string>Pause</string>
          </property>
         </widget>
        </item>
