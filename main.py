@@ -3,6 +3,8 @@ from PyQt5.QtWidgets import QMessageBox
 from PyQt5 import uic, QtWidgets
 from aux_functions import is_valid_temperature, is_range
 
+def teste_print():
+    print("Hello world!")
 
 def function_mode_one():
     set_temp_m1 = float(window_tcs.setTempM1.text())
@@ -10,9 +12,9 @@ def function_mode_one():
 
     if is_valid_temperature(set_temp_m1) == False:
         msg_error = "Enter a valid format!\nExample: 15.5"
-        #QMessageBox.setStyleSheet(self,"background-color: rgb(0,0,0)")
+        # QMessageBox.setStyleSheet(self,"background-color: rgb(0,0,0)")
         QMessageBox.critical(window_tcs, "ERRO!", msg_error)
-        #set_temp_m1 = window_tcs.setTempM1.text()
+        # set_temp_m1 = window_tcs.setTempM1.text()
     else:
         if is_range(set_temp_m1) == True:
             print("Sendo to arduin")
