@@ -1,11 +1,16 @@
 import sys
-from PyQt5.QtWidgets import QMessageBox, QPushButton, QApplication
+from PyQt5.QtWidgets import QMessageBox, QApplication
+from PyQt5.QtWidgets import QPushButton, QRadioButton
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtGui import QIcon
 from aux_functions import is_valid_temperature, is_range
 
-def function_mode_one():
-    val_mode_1 = True
+def read_data_mode_one():
+    # Function Mode 1 operation
+    # Actives fields: Set temperature, Set time
+    # Read the temperature until you enter a correct value
+    print("Mode 1 select!\n")
+    """ val_mode_1 = True
 
     while (val_mode_1 == True):
         set_temp_m1 = window_tcs.setTempM1.text()
@@ -20,7 +25,7 @@ def function_mode_one():
             box_error.setStandardButtons(QMessageBox.Ok)
 
             return_val_box_error = box_error.exec()
-            if return_val_box_error == True:
+            if return_val_box_error == QMessageBox.Ok:
                 print(msg_error)
                 val_mode_1 = True
         else:
@@ -40,24 +45,45 @@ def function_mode_one():
                 return_val_box_warning = box_warning.exec()
                 if return_val_box_warning == QMessageBox.Ok:
                     print("Ok! Continue")
-                    val_mode_1 = False
-                else:
-                    print("Enter a new value in interval 10 to 220")
-                    val_mode_1 = True
-        
+                    val_mode_1 = True """
 
-def function_mode_two():
-    print("Mode 2 select!")
+def read_data_mode_two():
+    # Function Mode 2 operation
+    # Actives fields: Step size: time, Temperature start, Step size: temperature, 
+    # Number of steps, Current steps
+    # Read the temperature until you enter a correct value 
+    print("Mode 2 select!\n")
 
-def execution_mode():
-    if window_tcs.buttonM1.isChecked() == True:
-        function_mode_one()
-    else:
-        msg_mode1 = "Select mode 1!"
-        QMessageBox.critical(window_tcs, "ERRO!", msg_mode1)
+def button_state():
+    button = QRadioButton()
+    # Mode 1 select
+    if button.text() == "Mode 1":
+        # Deactivate Mode 2
+        if button.isChecked() == True:
+            print("Input button state function\n")
+            read_data_mode_one()
+        else:
+            print("Mode 1 deactivate!\n")
+    # Mode 2 select
+    if button.text() == "Mode 2":
+        # Deactivate Mode 1
+        if button.isChecked() == True:
+            print("Input button state function\n")
+            read_data_mode_two()
+        else:
+            print("Mode 2 deactivate!\n")
 
-    if window_tcs.buttonM2.isChecked() == True:
-        function_mode_two()
+def select_mode():
+    # Buttons m1 e m2
+    button_mode1 = QRadioButton("Mode 1")
+    button_mode2 = QRadioButton("Mode 2")
+
+    button_mode1.setChecked(True)# Active for default
+    button_mode2.setChecked(False)# Deactive for default
+
+    button_mode1.toggled.connect(button_state())
+
+    button_mode2.toggled.connect(button_state())
 
 
 if __name__ == "__main__":
@@ -65,8 +91,9 @@ if __name__ == "__main__":
 
     window_tcs = uic.loadUi("TCSystem.ui")
 
-    window_tcs.start.clicked.connect(execution_mode)  # Modo de operação
-
+    window_tcs.buttonM1.toggled.connect(select_mode)# Execution mode 1
+    window_tcs.buttonM2.toggled.connect(select_mode)# Execution mode 2
+    # window_tcs.buttonPlay.connect()
     window_tcs.show()
 
     app_tcs.exec()  

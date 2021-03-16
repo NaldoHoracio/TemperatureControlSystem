@@ -387,7 +387,7 @@
       <property name="font">
        <font>
         <family>Times New Roman</family>
-        <pointsize>6</pointsize>
+        <pointsize>4</pointsize>
         <weight>75</weight>
         <italic>true</italic>
         <bold>true</bold>
@@ -431,8 +431,8 @@
        </size>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="3" column="1">
-        <widget class="QLabel" name="labelSetTempM1">
+       <item row="3" column="0">
+        <widget class="QLabel" name="setTempM1_2">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -518,8 +518,8 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
-        <widget class="QLabel" name="labelTimeStepM2">
+       <item row="10" column="0">
+        <widget class="QLabel" name="labelTempStartM2">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -528,20 +528,14 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>135</width>
+           <width>195</width>
            <height>40</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>135</width>
+           <width>195</width>
            <height>40</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>0</width>
-           <height>0</height>
           </size>
          </property>
          <property name="font">
@@ -553,14 +547,11 @@
           </font>
          </property>
          <property name="text">
-          <string>Time step (min)</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          <string>Temperature start (ºC)</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
+       <item row="2" column="0">
         <widget class="QLabel" name="labelCurrTime">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -607,8 +598,8 @@
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
-        <widget class="QLabel" name="labelTempStartM2">
+       <item row="9" column="0">
+        <widget class="QLabel" name="labelTimeStepM2">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -617,14 +608,20 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>195</width>
+           <width>180</width>
            <height>40</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>195</width>
+           <width>135</width>
            <height>40</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
           </size>
          </property>
          <property name="font">
@@ -636,7 +633,10 @@
           </font>
          </property>
          <property name="text">
-          <string>Temperature start (ºC)</string>
+          <string>Step size: time (min)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -716,7 +716,7 @@
          </property>
         </widget>
        </item>
-       <item row="12" column="2">
+       <item row="13" column="2">
         <widget class="QLineEdit" name="showCurrStepM2">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -750,66 +750,7 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="labelCurrTemp">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>210</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>210</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>MS Shell Dlg 2</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-           <underline>false</underline>
-           <strikeout>false</strikeout>
-           <stylestrategy>PreferDefault</stylestrategy>
-           <kerning>false</kerning>
-          </font>
-         </property>
-         <property name="contextMenuPolicy">
-          <enum>Qt::ActionsContextMenu</enum>
-         </property>
-         <property name="toolTipDuration">
-          <number>0</number>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::RightToLeft</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
-         </property>
-         <property name="lineWidth">
-          <number>1</number>
-         </property>
-         <property name="midLineWidth">
-          <number>0</number>
-         </property>
-         <property name="text">
-          <string>Current temperature (°C)</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="12" column="1">
+       <item row="13" column="0">
         <widget class="QLabel" name="labelCurrStepM2">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -842,6 +783,40 @@
          </property>
         </widget>
        </item>
+       <item row="12" column="2">
+        <widget class="QLineEdit" name="stepM2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Arial</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
        <item row="10" column="2">
         <widget class="QLineEdit" name="tempStartM2">
          <property name="sizePolicy">
@@ -870,113 +845,7 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="2">
-        <widget class="QLineEdit" name="numbStepM2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>80</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>80</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Arial</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLineEdit" name="showCurrTemp">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>80</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>80</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Arial</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>IBeamCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="1">
-        <widget class="QLabel" name="labelNumbStepsM2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>140</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>140</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Number of steps</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
+       <item row="4" column="0">
         <widget class="QLabel" name="setTimeText">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1009,6 +878,39 @@
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="0">
+        <widget class="QLabel" name="labelNumbStepsM2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>140</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>140</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Number of steps</string>
          </property>
         </widget>
        </item>
@@ -1094,8 +996,38 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
-        <widget class="QPushButton" name="start">
+       <item row="6" column="0">
+        <widget class="QPushButton" name="buttonPause">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Arial</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(170, 255, 255)</string>
+         </property>
+         <property name="text">
+          <string>Pause</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QPushButton" name="buttonPlay">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -1130,17 +1062,44 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="1">
-        <widget class="QPushButton" name="pause">
+       <item row="11" column="0">
+        <widget class="QLabel" name="labelStepSizeTempM2">
          <property name="minimumSize">
           <size>
-           <width>100</width>
+           <width>230</width>
            <height>40</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>100</width>
+           <width>230</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Step size: temperature (ºC)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="2">
+        <widget class="QLineEdit" name="tempStepM2">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
            <height>40</height>
           </size>
          </property>
@@ -1148,15 +1107,111 @@
           <font>
            <family>Arial</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(170, 255, 255)</string>
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelCurrTemp">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>210</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>210</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+           <underline>false</underline>
+           <strikeout>false</strikeout>
+           <stylestrategy>PreferDefault</stylestrategy>
+           <kerning>false</kerning>
+          </font>
+         </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::ActionsContextMenu</enum>
+         </property>
+         <property name="toolTipDuration">
+          <number>0</number>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+         <property name="midLineWidth">
+          <number>0</number>
          </property>
          <property name="text">
-          <string>Pause</string>
+          <string>Current temperature (°C)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLineEdit" name="showCurrTemp">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Arial</family>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
