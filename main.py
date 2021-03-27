@@ -57,26 +57,29 @@ def read_data_mode_two():
 def button_state():
     button = QRadioButton()
     # Mode 1 select
-    if button.text() == "Mode 1":
+    if button.text() == "Mode1":
         # Deactivate Mode 2
         if button.isChecked() == True:
             print("Input button state function\n")
-            read_data_mode_one()
+            print("Mode 1 active!")
+            #read_data_mode_one()
         else:
             print("Mode 1 deactivate!\n")
     # Mode 2 select
-    if button.text() == "Mode 2":
+    if button.text() == "Mode2":
         # Deactivate Mode 1
         if button.isChecked() == True:
             print("Input button state function\n")
-            read_data_mode_two()
+            print("Mode 2 active!")
+            #read_data_mode_two()
         else:
             print("Mode 2 deactivate!\n")
 
+'''
 def select_mode():
     # Buttons m1 e m2
-    button_mode1 = QRadioButton("Mode 1")
-    button_mode2 = QRadioButton("Mode 2")
+    button_mode1 = window_tcs.buttonM1()
+    button_mode2 = window_tcs.buttonM2()
 
     button_mode1.setChecked(True)# Active for default
     button_mode2.setChecked(False)# Deactive for default
@@ -84,15 +87,15 @@ def select_mode():
     button_mode1.toggled.connect(button_state())
 
     button_mode2.toggled.connect(button_state())
-
+'''
 
 if __name__ == "__main__":
     app_tcs = QtWidgets.QApplication([])
 
     window_tcs = uic.loadUi("TCSystem.ui")
 
-    window_tcs.buttonM1.toggled.connect(select_mode)# Execution mode 1
-    window_tcs.buttonM2.toggled.connect(select_mode)# Execution mode 2
+    window_tcs.buttonM1.toggled.connect(button_state)# Execution mode 1
+    window_tcs.buttonM2.toggled.connect(button_state)# Execution mode 2
     # window_tcs.buttonPlay.connect()
     window_tcs.show()
 
