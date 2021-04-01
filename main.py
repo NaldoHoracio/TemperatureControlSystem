@@ -1,9 +1,11 @@
-import sys
+import sys, time
 from PyQt5.QtWidgets import QMessageBox, QApplication
 from PyQt5.QtWidgets import QPushButton, QRadioButton
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtGui import QIcon
 from aux_functions import is_valid_temperature, is_range
+
+# Criar uma classe de windows_tcs e chamar todas as funções nela
 
 def read_data_mode_one():
     # Function Mode 1 operation
@@ -55,48 +57,44 @@ def read_data_mode_two():
     print("Mode 2 select!\n")
 
 def button_state():
-    button = QRadioButton()
     # Mode 1 select
-    if button.text() == "Mode1":
+    if window_tcs.buttonM1.text() == "Mode1":
         # Deactivate Mode 2
-        if button.isChecked() == True:
+        if window_tcs.buttonM1.isChecked() == True:
             print("Input button state function\n")
             print("Mode 1 active!")
             #read_data_mode_one()
         else:
             print("Mode 1 deactivate!\n")
     # Mode 2 select
-    if button.text() == "Mode2":
+    if window_tcs.buttonM2.text() == "Mode2":
         # Deactivate Mode 1
-        if button.isChecked() == True:
+        if window_tcs.buttonM2.isChecked() == True:
             print("Input button state function\n")
             print("Mode 2 active!")
-            #read_data_mode_two()
+            read_data_mode_two()
         else:
             print("Mode 2 deactivate!\n")
 
-'''
-def select_mode():
-    # Buttons m1 e m2
-    button_mode1 = window_tcs.buttonM1()
-    button_mode2 = window_tcs.buttonM2()
-
-    button_mode1.setChecked(True)# Active for default
-    button_mode2.setChecked(False)# Deactive for default
-
-    button_mode1.toggled.connect(button_state())
-
-    button_mode2.toggled.connect(button_state())
-'''
 
 if __name__ == "__main__":
-    app_tcs = QtWidgets.QApplication([])
 
-    window_tcs = uic.loadUi("TCSystem.ui")
+    app_tcs = QtWidgets.QApplication([])# Load the application
 
-    window_tcs.buttonM1.toggled.connect(button_state)# Execution mode 1
-    window_tcs.buttonM2.toggled.connect(button_state)# Execution mode 2
+    window_tcs = uic.loadUi("TCSystem.ui")# Call the window
+
+    # while janela_principal executando chame a função de seleção dos botões
+    while True:
+        # Mode select - Mode1 or Mode2
+        window_tcs.buttonM1.setChecked(True)# Active for default
+        window_tcs.buttonM2.setChecked(False)# Deactive for default
+
+        window_tcs.buttonM1.toggled.connect(button_state())
+
+        window_tcs.buttonM2.toggled.connect(button_state())
+        time.sleep(0.1)
+    
     # window_tcs.buttonPlay.connect()
     window_tcs.show()
 
-    app_tcs.exec()  
+    sys.exit(app_tcs.exec())
