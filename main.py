@@ -1,11 +1,9 @@
 import sys, time
 from PyQt5.QtWidgets import QMessageBox, QApplication, QMainWindow
-from PyQt5.QtWidgets import QPushButton, QRadioButton
+from PyQt5.QtWidgets import QPushButton, QRadioButton, QLineEdit
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QDoubleValidator
 from aux_functions import is_valid_temperature, is_range
-
-# Criar uma classe de windows_tcs e chamar todas as funções nela
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -32,11 +30,22 @@ class MainWindow(QMainWindow):
         radio_button = self.sender()
         if radio_button.isChecked() == True:
             if radio_button.text() == "Mode1":
-                print("Mode 1 activated!")
-                # read_data_mode_one()
+                #print("Mode 1 activated!")
+                self.data_mode_one()
             elif radio_button.text() == "Mode2":
-                print("Mode 2 activated!")
-                # read_data_mode_two
+                #print("Mode 2 activated!")
+                self.data_mode_two()
+    
+    def data_mode_one(self):
+        self.set_temp_m1 = self.findChild(QtWidgets.QLineEdit, 'setTempM1')
+        self.set_temp_m1.setValidator(QDoubleValidator(0.1, 220.0, 1))
+        print("Temp1: ", self.set_temp_m1)
+        print("Mode 1 activated!")
+
+    def data_mode_two(self):
+        
+        #print("Temp2: ", round(set_temp_start_aux,2))
+        print("Mode 2 activated!")
 
 if __name__ == "__main__":
 
