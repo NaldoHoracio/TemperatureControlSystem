@@ -105,3 +105,23 @@ if __name__ == "__main__":
         #time.sleep(0.1)
     
     # window_tcs.buttonPlay.connect()
+
+    ### Pressed button actions
+
+    '''
+            if value_temp_m1 == True:
+                print("Mode 1 activated! Segue o baile!")
+            else:
+                msg_err_temp_m1 = QMessageBox()
+                msg_err_temp_m1.setIcon(QMessageBox.Information)
+                msg_err_temp_m1.setText("Invalid format or \
+                    temperature outside the range or incomplete data! \
+                    Check the problem and input the values.")
+                msg_err_temp_m1.setWindowTitle("Warning")
+                msg_err_temp_m1.setStandardButtons(QMessageBox.Ok)
+                
+                return_val_set_temp_m1 = msg_err_temp_m1.exec()
+                
+                if return_val_set_temp_m1 == QMessageBox.Ok:
+                    pass
+               ''' 

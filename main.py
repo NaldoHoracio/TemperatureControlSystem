@@ -10,9 +10,25 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         uic.loadUi("TCSystem.ui", self)
 
-        self.button_mode1 = self.findChild(QtWidgets.QRadioButton, 'buttonM1')
-        self.button_mode2 = self.findChild(QtWidgets.QRadioButton, 'buttonM2')
-        #print("Type: ",type(self.buttonM1))
+        # Botões para escolha dos modos de operação
+        self.button_mode1 = self.findChild(QtWidgets.QRadioButton, 'buttonM1')# Botão Mode1
+        self.button_mode2 = self.findChild(QtWidgets.QRadioButton, 'buttonM2')# Botão Mode2
+        
+        # Campos para preenchimento dos valores
+        # Modo 1
+        self.set_temp_m1 = self.findChild(QtWidgets.QLineEdit, 'setTempM1')# Campo setTempM1
+        self.set_time_m1 = self.findChild(QtWidgets.QLineEdit, 'setTimeM1')# Campo setTimeM1
+        # Modo 2
+        self.set_temp_step_m2 = self.findChild(QtWidgets.QLineEdit, 'tempStepM2')# Campo tempStepM2
+        self.set_time_step_m2 = self.findChild(QtWidgets.QLineEdit, 'timeStepM2')# Campo timeStepM2
+        self.set_temp_start_m2 = self.findChild(QtWidgets.QLineEdit, 'tempStartM2')# Campo tempStepM2
+        self.set_number_steps_m2 = self.findChild(QtWidgets.QLineEdit, 'stepM2')# Campo stepM2
+
+        # Botões para início, pausa ou cancelamento dos processos
+        self.button_play = self.findChild(QtWidgets.QPushButton, 'buttonPlay')# Botão Play
+        self.button_pause = self.findChild(QtWidgets.QPushButton, 'buttonPause')# Botão Pause
+        self.button_cancel = self.findChild(QtWidgets.QPushButton, 'buttonCancel')# Botão Cancel
+
         self.button_mode1.setChecked(True)# Modo 1 ativo por default
         self.button_mode2.setChecked(False)# Modo 2 desativado por default
 
@@ -37,43 +53,43 @@ class MainWindow(QMainWindow):
                 self.data_mode_two()
     
     def data_mode_one(self):
-        self.set_temp_m1 = self.findChild(QtWidgets.QLineEdit, 'setTempM1')
+        print("Mode 1 activated!")
+        
         value_temp_m1 = self.set_temp_m1.setValidator(QDoubleValidator(0.1, 220.0, 1))
         
-        # Botão Play
-        self.button_play = self.findChild(QtWidgets.QPushButton, 'buttonPlay')
-
-        if self.button_play.clicked.connect(self.button_play):
-            if value_temp_m1 == True:
-                print("Mode 1 activated! Segue o baile!")
-            else:
-                msg_err_temp_m1 = QMessageBox()
-                msg_err_temp_m1.setIcon(QMessageBox.Information)
-                msg_err_temp_m1.setText("Invalid format or \
-                    temperature outside the range or incomplete data! \
-                    Check the problem and input the values.")
-                msg_err_temp_m1.setWindowTitle("Warning")
-                msg_err_temp_m1.setStandardButtons(QMessageBox.Ok)
-                
-                return_val_set_temp_m1 = msg_err_temp_m1.exec()
-                
-                if return_val_set_temp_m1 == QMessageBox.Ok:
-                    pass
-                
-
-
+        if self.button_play.setCheckable(True):
+            self.button_play.toggled.connect(self.play_button_function)
+        else:
+            print("Botão Play unpressed!")
         #print("Temp1: ", self.set_temp_m1.text())
-        print("Mode 1 activated!")
+
+        if self.button_pause.setCheckable(True):
+            self.button_pause.toggled.connect(self.pause_button_function)
+            # print("Para tudo!")
+        
+        if self.button_cancel.isChecked() == True:
+            self.button_cancel.toggled.connect(self.cancel_button_function)
+            print("Limpa tudo e gera um .csv com os dados (modo, temperatura, etc).")
 
     def data_mode_two(self):
         
         #print("Temp2: ", round(set_temp_start_aux,2))
         print("Mode 2 activated!")
 
-    def button_play(self):
+    def play_button_function(self):
         # Envia os dados para o arduino e inicia o processo 
         # caso os dados estejam corretos
-        print('Play button click')
+        print('Play button pressed!')
+
+    def pause_button_function(self):
+        # Pausa as tarefa (aquecimento) quando esta
+        # em execução
+        print("Pause button pressed!")
+
+    def cancel_button_function(self):
+        # Cancela a tarefa e limpa todos os campos
+        # Retorna ao modo default de abertura: modo 1
+        print("Cancel button pressed!")
 
 if __name__ == "__main__":
 
