@@ -9,16 +9,14 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         uic.loadUi("TCSystem.ui", self)
-
-        # Botões para escolha dos modos de operação
-        self.button_mode1 = self.findChild(QtWidgets.QRadioButton, 'buttonM1')# Botão Mode1
-        self.button_mode2 = self.findChild(QtWidgets.QRadioButton, 'buttonM2')# Botão Mode2
         
         # Campos para preenchimento dos valores
         # Modo 1
+        self.button_mode1 = self.findChild(QtWidgets.QRadioButton, 'buttonM1')# Botão Mode1
         self.set_temp_m1 = self.findChild(QtWidgets.QLineEdit, 'setTempM1')# Campo setTempM1
         self.set_time_m1 = self.findChild(QtWidgets.QLineEdit, 'setTimeM1')# Campo setTimeM1
         # Modo 2
+        self.button_mode2 = self.findChild(QtWidgets.QRadioButton, 'buttonM2')# Botão Mode2
         self.set_temp_step_m2 = self.findChild(QtWidgets.QLineEdit, 'tempStepM2')# Campo tempStepM2
         self.set_time_step_m2 = self.findChild(QtWidgets.QLineEdit, 'timeStepM2')# Campo timeStepM2
         self.set_temp_start_m2 = self.findChild(QtWidgets.QLineEdit, 'tempStartM2')# Campo tempStepM2
@@ -32,54 +30,68 @@ class MainWindow(QMainWindow):
         self.button_mode1.setChecked(True)# Modo 1 ativo por default
         self.button_mode2.setChecked(False)# Modo 2 desativado por default
 
-        # Alterando os modos de ativação
-        self.button_mode1.toggled.connect(self.button_state)
-        self.button_mode2.toggled.connect(self.button_state)
+        # Captura o modo default de ativação quando abre a janela
+        if self.button_mode1.isChecked() == True:
+            #print("Mode 1 IF")
+            self.operation_mode()
 
+        # Alterando os modos de ativação
+        self.button_mode1.clicked.connect(self.operation_mode)
+        #self.button_mode2.toggle()
+        self.button_mode2.clicked.connect(self.operation_mode)
         #time.sleep(0.1)
 
+        self.update()
         self.show()
-            
     
-    def button_state(self):
+    def operation_mode(self):
         # Checa qual modo está ativo
-        radio_button = self.sender()
-        if radio_button.isChecked() == True:
-            if radio_button.text() == "Mode1":
-                #print("Mode 1 activated!")
-                self.data_mode_one()
-            elif radio_button.text() == "Mode2":
-                #print("Mode 2 activated!")
-                self.data_mode_two()
-    
-    def data_mode_one(self):
-        print("Mode 1 activated!")
+        if self.button_mode1.isChecked() == True:
+            self.operation_mode_one()
+            print("Mode 1 button_state")
         
-        value_temp_m1 = self.set_temp_m1.setValidator(QDoubleValidator(0.1, 220.0, 1))
+        if self.button_mode2.isChecked() == True:
+            self.operation_mode_two()
+            print("Mode 2 button_state")
         
+    def operation_mode_one(self):
+        print("FUNCTION operation_mode_one!")   
+        #value_temp_m1 = self.set_temp_m1.setValidator(QDoubleValidator(0.1, 220.0, 1))
+
         if self.button_play.setCheckable(True):
-            self.button_play.toggled.connect(self.play_button_function)
-        else:
-            print("Botão Play unpressed!")
-        #print("Temp1: ", self.set_temp_m1.text())
+            print("PLAY BUTTON M1")
+            self.play_button_function()
 
         if self.button_pause.setCheckable(True):
-            self.button_pause.toggled.connect(self.pause_button_function)
-            # print("Para tudo!")
+            #self.button_pause.toggled()
+            #self.pause_button_function()
+            print("PAUSE BUTTON M1")
         
         if self.button_cancel.isChecked() == True:
-            self.button_cancel.toggled.connect(self.cancel_button_function)
-            print("Limpa tudo e gera um .csv com os dados (modo, temperatura, etc).")
+            #self.button_cancel.toggled.connect(self.cancel_button_function)
+            #self.button_cancel.toggled()
+            #print("Limpa tudo e gera um .csv com os dados (modo, temperatura, etc).")
+            print("CANCEL BUTTON M1")
 
-    def data_mode_two(self):
-        
-        #print("Temp2: ", round(set_temp_start_aux,2))
+    def operation_mode_two(self):      
+        print("FUNCTION operation_mode_two!")
         print("Mode 2 activated!")
+
+    def default_mode(self):
+        print("Modo default activated!")
 
     def play_button_function(self):
         # Envia os dados para o arduino e inicia o processo 
         # caso os dados estejam corretos
-        print('Play button pressed!')
+        if self.button_play.isChecked() == True:
+            print("PLAY BUTTON M1")
+            self.button_play.setCheckable(True)
+            self.button_play.setStyleSheet("background-color : lightblue")
+            print('Play button pressed!')
+        else:
+            self.button_play.setCheckab(False)
+            self.button_play.setStyleSheet("background-color: lightgrey")
+            #self.button_play.setStyleSheet("background-color: rgb(255, 255, 127)")
 
     def pause_button_function(self):
         # Pausa as tarefa (aquecimento) quando esta
@@ -97,9 +109,6 @@ if __name__ == "__main__":
 
     window_obj = MainWindow()
 
-    window_obj.show()
+    #window_obj.show()
 
     sys.exit(app_tcs.exec())
-
-
-    

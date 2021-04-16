@@ -1,3 +1,63 @@
+import sys, time
+from PyQt5.QtWidgets import QMessageBox, QApplication, QMainWindow
+from PyQt5.QtWidgets import QPushButton, QRadioButton, QLineEdit
+from PyQt5 import uic, QtWidgets, QHBoxLayout
+from PyQt5.QtGui import QIcon, QDoubleValidator
+from aux_functions import is_valid_temperature, is_range
+		
+class Radiodemo(QWidget):
+
+   def __init__(self, parent = None):
+      super(Radiodemo, self).__init__(parent)
+		
+      layout = QHBoxLayout()
+      self.b1 = QRadioButton("Button1")
+      self.b1.setChecked(True)
+      self.b1.toggled.connect(lambda:self.btnstate(self.b1))
+      layout.addWidget(self.b1)
+		
+      self.b2 = QRadioButton("Button2")
+      self.b2.toggled.connect(lambda:self.btnstate(self.b2))
+
+      layout.addWidget(self.b2)
+      self.setLayout(layout)
+      self.setWindowTitle("RadioButton demo")
+		
+   def btnstate(self,b):
+	
+      if b.text() == "Button1":
+         if b.isChecked() == True:
+            print(b.text()+" is selected")
+         else:
+            print(b.text()+" is deselected")
+				
+      if b.text() == "Button2":
+         if b.isChecked() == True:
+            print(b.text()+" is selected")
+         else:
+            print(b.text()+" is deselected")
+				
+def main():
+
+   app = QApplication(sys.argv)
+   ex = Radiodemo()
+   ex.show()
+   sys.exit(app.exec_())
+	
+if __name__ == '__main__':
+   main()
+
+
+def operation_mode(self):
+        # Checa qual modo está ativo
+        if self.button_mode1.isChecked() == True:
+            self.operation_mode_one()
+            print("Mode 1 button_state")
+        
+        if self.button_mode2.isChecked() == True:
+            self.operation_mode_two()
+            print("Mode 2 button_state")
+
 super().__init__()
 
         uic.loadUi("TCSystem.ui", self)# Call the window
