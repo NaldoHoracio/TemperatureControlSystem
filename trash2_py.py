@@ -54,3 +54,70 @@ window = Window()
 
 # start the app
 sys.exit(App.exec())
+
+################
+################
+def default_mode(self):
+        print("Modo default activated!")
+
+    def play_button_function(self):
+        # Envia os dados para o arduino e inicia o processo 
+        # caso os dados estejam corretos
+        if self.button_play.isChecked() == True:
+            print("PLAY BUTTON M1")
+            self.button_play.setStyleSheet("background-color : lightblue")
+        else:
+            #self.button_play.setCheckab(False)
+            self.button_play.setStyleSheet("background-color: lightgrey")
+            #self.button_play.setStyleSheet("background-color: rgb(255, 255, 127)")
+
+    def pause_button_function(self):
+        # Pausa as tarefa (aquecimento) quando esta
+        # em execução
+        print("Pause button pressed!")
+
+    def cancel_button_function(self):
+        # Cancela a tarefa e limpa todos os campos
+        # Retorna ao modo default de abertura: modo 1
+        print("Cancel button pressed!")
+    
+    def operation_mode_one(self):
+        '''
+            Modo de operação 1 (Mode1)
+        '''
+        print("FUNCTION operation_mode_one!")   
+        #value_temp_m1 = self.set_temp_m1.setValidator(QDoubleValidator(0.1, 220.0, 1))
+
+        if self.button_play.isChecked() == True:
+            print("PLAY BUTTON M1")
+            self.play_button_function()
+
+        if self.button_pause.setCheckable(True):
+            #self.button_pause.toggled()
+            #self.pause_button_function()
+            print("PAUSE BUTTON M1")
+        
+        if self.button_cancel.isChecked() == True:
+            #self.button_cancel.toggled.connect(self.cancel_button_function)
+            #self.button_cancel.toggled()
+            #print("Limpa tudo e gera um .csv com os dados (modo, temperatura, etc).")
+            print("CANCEL BUTTON M1")
+    
+    def operation_mode_two(self):
+        ''' 
+            Modo de operação 2 (Mode2)
+        '''     
+        print("FUNCTION operation_mode_two!")
+        print("Mode 2 activated!")
+    
+    def operation_mode(self):
+        ''' 
+            Checa qual modo de operação está ativo
+        '''
+        if self.button_mode1.isChecked() == True:
+            self.operation_mode_one()
+            print("Mode 1 button_state")
+        
+        if self.button_mode2.isChecked() == True:
+            self.operation_mode_two()
+            print("Mode 2 button_state")
