@@ -1,8 +1,10 @@
 import sys, time
+from PyQt5.QtCore import QTime
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtGui import QIcon, QDoubleValidator
 from aux_functions import is_valid_temperature, is_range
-from PyQt5.QtWidgets import QMessageBox, QApplication, QMainWindow, QPushButton, QRadioButton, QLineEdit
+from PyQt5.QtWidgets import QMessageBox, QApplication, QMainWindow, \
+QPushButton, QRadioButton, QLineEdit, QTimeEdit
 
 class TcsMainWindow(QMainWindow):
     def __init__(self):
@@ -10,20 +12,30 @@ class TcsMainWindow(QMainWindow):
         uic.loadUi('TCSystem.ui', self)
         
         # Campos para preenchimento dos valores
-        # Modo 1
+        # MODO 1
         self.button_mode1 = self.findChild(QtWidgets.QRadioButton, 'buttonM1')# Botão Mode1
 
         self.set_temp_m1 = self.findChild(QtWidgets.QLineEdit, 'setTempM1')# Campo setTempM1
-        self.set_temp_m1.setToolTip('Input in format: min:s')
-        self.set_time_m1 = self.findChild(QtWidgets.QLineEdit, 'setTimeM1')# Campo setTimeM1
+        self.set_temp_m1.setToolTip('Example input: 15.2')# Help para mostrar o tipo de dado na entrada
 
-        # Modo 2
+        self.set_time_m1 = self.findChild(QtWidgets.QTimeEdit, 'setTimeM1')# Campo setTimeM1
+        self.set_time_m1.setTimeRange(QTime(0, 00, 00), QTime(0, 59, 59))# Limitando a entrada
+        self.set_time_m1.setDisplayFormat('mm:ss')
+        self.set_time_m1.setToolTip('Input in format: MM:ss')
+
+        # MODO 2
         self.button_mode2 = self.findChild(QtWidgets.QRadioButton, 'buttonM2')# Botão Mode2
         
-        self.set_temp_step_m2 = self.findChild(QtWidgets.QLineEdit, 'tempStepM2')# Campo tempStepM2
-        self.set_time_step_m2 = self.findChild(QtWidgets.QLineEdit, 'timeStepM2')# Campo timeStepM2
+        self.set_time_step_m2 = self.findChild(QtWidgets.QTimeEdit, 'timeStepM2')# Campo timeStepM2
+        self.set_time_step_m2.setTimeRange(QTime(0, 00, 00), QTime(0, 59, 59))# Limitando a entrada
+        self.set_time_step_m2.setDisplayFormat('mm:ss')# Limitando a entrada no objeto
+        self.set_time_step_m2.setToolTip('Input in format: MM:ss')# Help para mostrar o tipo de dado na entrada
+
         self.set_temp_start_m2 = self.findChild(QtWidgets.QLineEdit, 'tempStartM2')# Campo tempStepM2
+        self.set_temp_start_m2.setToolTip('Example input: 15.2')# Help para mostrar o tipo de dado na entrada
+
         self.set_number_steps_m2 = self.findChild(QtWidgets.QLineEdit, 'stepM2')# Campo stepM2
+        self.set_number_steps_m2.setToolTip('Example input: 8')
 
         # Botões para início, pausa ou cancelamento dos processos
         self.button_play = self.findChild(QtWidgets.QPushButton, 'buttonPlay')# Botão Play
