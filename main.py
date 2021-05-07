@@ -15,7 +15,7 @@ class TcsMainWindow(QMainWindow):
         # MODO 1
         self.button_mode1 = self.findChild(QtWidgets.QRadioButton, 'buttonM1')# Botão Mode1
 
-        self.set_temp_m1 = self.findChild(QtWidgets.QLineEdit, 'setTempM1')# Campo setTempM1
+        self.set_temp_m1 = self.findChild(QtWidgets.QDoubleSpinBox, 'setTempM1')# Campo setTempM1
         self.set_temp_m1.setToolTip('Example input: 15.2')# Help para mostrar o tipo de dado na entrada
 
         self.set_time_m1 = self.findChild(QtWidgets.QTimeEdit, 'setTimeM1')# Campo setTimeM1
@@ -31,10 +31,10 @@ class TcsMainWindow(QMainWindow):
         self.set_time_step_m2.setDisplayFormat('mm:ss')# Limitando a entrada no objeto
         self.set_time_step_m2.setToolTip('Input in format: MM:ss')# Help para mostrar o tipo de dado na entrada
 
-        self.set_temp_start_m2 = self.findChild(QtWidgets.QLineEdit, 'tempStartM2')# Campo tempStepM2
+        self.set_temp_start_m2 = self.findChild(QtWidgets.QDoubleSpinBox, 'tempStartM2')# Campo tempStepM2
         self.set_temp_start_m2.setToolTip('Example input: 15.2')# Help para mostrar o tipo de dado na entrada
 
-        self.set_number_steps_m2 = self.findChild(QtWidgets.QLineEdit, 'stepM2')# Campo stepM2
+        self.set_number_steps_m2 = self.findChild(QtWidgets.QSpinBox, 'stepM2')# Campo stepM2
         self.set_number_steps_m2.setToolTip('Example input: 8')
 
         # Botões para início, pausa ou cancelamento dos processos
@@ -60,12 +60,11 @@ class TcsMainWindow(QMainWindow):
             Função do botão play
         '''
         print("FUNCTION play_button_function INIT")
-        print("Botão Play!")
         if self.button_play.isChecked() == True:
             print("Button Play pressed!")
         else:
             print("Button Play unpressed!")
-        print("FUNCTION play_button_function END")
+        print("FUNCTION play_button_function END\n")
     
     def operation_mode_one(self):
         '''
@@ -73,10 +72,8 @@ class TcsMainWindow(QMainWindow):
         '''
         print("FUNCTION operation_mode_one INIT")
         print("Operation Mode1")
-        #self.play_button_function()
-        self.set_temp_m1.setValidator(QDoubleValidator(0.0, 200.0, 1))
-        self.set_time_m1.setValidator(QDoubleValidator(0.0, ))
-        print("FUNCTION operation_mode_one END")
+        self.play_button_function()
+        print("FUNCTION operation_mode_one END\n")
 
     def operation_mode_two(self):
         '''
@@ -85,7 +82,7 @@ class TcsMainWindow(QMainWindow):
         print("FUNCTION operation_mode_two INIT")
         print("Operation Mode2")
         self.play_button_function()
-        print("FUNCTION operation_mode_two END")
+        print("FUNCTION operation_mode_two END\n")
     
     def operation_mode(self) -> None:
         ''' 
