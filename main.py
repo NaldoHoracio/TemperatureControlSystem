@@ -59,36 +59,36 @@ class TcsMainWindow(QMainWindow):
         '''
             Função do botão play
         '''
-        print("FUNCTION play_button_function INIT")
+        #print("FUNCTION play_button_function INIT")
         if self.button_play.isChecked() == True:
             print("Button Play pressed!")
         else:
             print("Button Play unpressed!")
-        print("FUNCTION play_button_function END\n")
+        #print("FUNCTION play_button_function END\n")
     
     def operation_mode_one(self):
         '''
             Função do modo de operaçao 1 (Mode1)
         '''
-        print("FUNCTION operation_mode_one INIT")
-        print("Operation Mode1")
+        #print("FUNCTION operation_mode_one INIT")
+        #print("Operation Mode1")
         self.play_button_function()
-        print("FUNCTION operation_mode_one END\n")
+        #print("FUNCTION operation_mode_one END\n")
 
     def operation_mode_two(self):
         '''
             Função do modo de operaçao 1 (Mode2)
         '''
-        print("FUNCTION operation_mode_two INIT")
-        print("Operation Mode2")
+        #print("FUNCTION operation_mode_two INIT")
+        #print("Operation Mode2")
         self.play_button_function()
-        print("FUNCTION operation_mode_two END\n")
+        #print("FUNCTION operation_mode_two END\n")
     
     def operation_mode(self) -> None:
         ''' 
             Checa qual modo de operação está ativo
         '''
-        print("FUNCTION operation_mode INIT")
+        #print("FUNCTION operation_mode INIT")
 
         if self.button_mode1.text() == "Mode1":
             if self.button_mode1.isChecked() == True:
@@ -99,7 +99,7 @@ class TcsMainWindow(QMainWindow):
             if self.button_mode2.isChecked() == True:
                 print("Mode 2 activated")
                 self.operation_mode_two()
-        print("FUNCTION operation_mode END\n")
+        #print("FUNCTION operation_mode END\n")
 
 if __name__ == "__main__":
     
