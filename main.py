@@ -39,17 +39,22 @@ class TcsMainWindow(QMainWindow):
 
         # Botões para início, pausa ou cancelamento dos processos
         self.button_play = self.findChild(QtWidgets.QPushButton, 'buttonPlay')# Botão Play
+        #self.button_play.setCheckable(True)
+
         self.button_pause = self.findChild(QtWidgets.QPushButton, 'buttonPause')# Botão Pause
+        #self.button_pause.setCheckable(True)
+
         self.button_cancel = self.findChild(QtWidgets.QPushButton, 'buttonCancel')# Botão Cancel
+        #self.button_cancel.setCheckable(True)
 
         self.button_mode1.setChecked(True)# Modo 1 ativo por default
         #self.button_mode2.setChecked(True)# Modo 2 desativado por default
 
         # Alterando os modos de ativação
         if self.button_mode1.isChecked() == True:
-            self.button_mode1.toggled.connect(self.operation_mode)
+            self.button_mode1.toggled.connect(self.operation_mode_one)
         else:
-            self.button_mode2.toggled.connect(self.operation_mode)
+            self.button_mode2.toggled.connect(self.operation_mode_two)
         #self.button_mode2.toggled.connect(self.operation_mode)
 
         self.update()# Atualiza a janela
@@ -61,7 +66,7 @@ class TcsMainWindow(QMainWindow):
         '''
         #print("FUNCTION play_button_function INIT")
         if self.button_play.isChecked() == True:
-            print("Button Play pressed!")
+            print("Button Play pressed!\nPAU NA MÁQUINA!\n")
         else:
             print("Button Play unpressed!")
         #print("FUNCTION play_button_function END\n")
@@ -84,10 +89,9 @@ class TcsMainWindow(QMainWindow):
         self.play_button_function()
         #print("FUNCTION operation_mode_two END\n")
     
+    '''
     def operation_mode(self) -> None:
-        ''' 
-            Checa qual modo de operação está ativo
-        '''
+        ###    Checa qual modo de operação está ativo
         #print("FUNCTION operation_mode INIT")
 
         if self.button_mode1.text() == "Mode1":
@@ -100,6 +104,7 @@ class TcsMainWindow(QMainWindow):
                 print("Mode 2 activated")
                 self.operation_mode_two()
         #print("FUNCTION operation_mode END\n")
+    '''
 
 if __name__ == "__main__":
     

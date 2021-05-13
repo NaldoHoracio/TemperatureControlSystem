@@ -410,7 +410,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
@@ -500,7 +500,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
@@ -518,7 +518,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>Elapsed total time (h:min:s)</string>
+          <string>Elapsed time (h:min:s)</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -547,7 +547,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
@@ -583,7 +583,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
@@ -616,7 +616,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
@@ -650,7 +650,7 @@
          <property name="font">
           <font>
            <family>MS Shell Dlg 2</family>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
@@ -708,7 +708,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
@@ -735,7 +735,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
@@ -774,7 +774,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
