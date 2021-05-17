@@ -39,7 +39,7 @@ class TcsMainWindow(QMainWindow):
 
         # Botões para início, pausa ou cancelamento dos processos
         self.button_play = self.findChild(QtWidgets.QPushButton, 'buttonPlay')# Botão Play
-        #self.button_play.setCheckable(True)
+        self.button_play.setCheckable(True)
 
         self.button_pause = self.findChild(QtWidgets.QPushButton, 'buttonPause')# Botão Pause
         #self.button_pause.setCheckable(True)
@@ -52,9 +52,9 @@ class TcsMainWindow(QMainWindow):
 
         # Alterando os modos de ativação
         if self.button_mode1.isChecked() == True:
-            self.button_mode1.toggled.connect(self.operation_mode_one)
+            self.button_play.clicked.connect(self.play_button_function)
         else:
-            self.button_mode2.toggled.connect(self.operation_mode_two)
+            self.button_play.clicked.connect(self.play_button_function)
         #self.button_mode2.toggled.connect(self.operation_mode)
 
         self.update()# Atualiza a janela
@@ -68,7 +68,7 @@ class TcsMainWindow(QMainWindow):
         if self.button_play.isChecked() == True:
             print("Button Play pressed!\nPAU NA MÁQUINA!\n")
         else:
-            print("Button Play unpressed!")
+            print("Button Play unpressed!\n")
         #print("FUNCTION play_button_function END\n")
     
     def operation_mode_one(self):
