@@ -45,7 +45,7 @@ class TcsMainWindow(QMainWindow):
         self.button_pause.setCheckable(True)
 
         self.button_cancel = self.findChild(QtWidgets.QPushButton, 'buttonCancel')# Botão Cancel
-        self.button_cancel.setCheckable(True)
+        #self.button_cancel.setCheckable(True)
 
         self.button_mode1.setChecked(True)# Modo 1 ativo por default
         #self.button_mode2.setChecked(True)# Modo 2 desativado por default
@@ -53,8 +53,12 @@ class TcsMainWindow(QMainWindow):
         # Alterando os modos de ativação
         if self.button_mode1.isChecked() == True:
             self.button_play.clicked.connect(self.play_button_function)
+            self.button_pause.clicked.connect(self.pause_button_function)
+            self.button_cancel.clicked.connect(self.cancel_button_function)
         else:
             self.button_play.clicked.connect(self.play_button_function)
+            self.button_pause.clicked.connect(self.pause_button_function)
+            self.button_cancel.clicked.connect(self.cancel_button_function)
         #self.button_mode2.toggled.connect(self.operation_mode)
 
         self.update()# Atualiza a janela
@@ -87,10 +91,10 @@ class TcsMainWindow(QMainWindow):
             Função do botão pause
         '''
         #print("FUNCTION play_button_function INIT")
-        if self.button_pause.isChecked() == True:
-            print("Button Pause pressed!\nPAU NA MÁQUINA!\n")
-        else:
-            print("Button Pause unpressed!\n")
+        #if self.button_cancel.isChecked() == True:
+        print("Button Cancel pressed!\nPAU NA MÁQUINA!\n")
+        #else:
+            #print("Button Cancel unpressed!\n")
         #print("FUNCTION play_button_function END\n")
     
     def play_button_function_m1(self):
