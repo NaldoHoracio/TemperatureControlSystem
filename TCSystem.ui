@@ -162,7 +162,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="loadUSB">
             <property name="minimumSize">
              <size>
               <width>80</width>
@@ -192,7 +192,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/usb_icon.jpg</normaloff>imgs/usb_icon.jpg</iconset>
+              <normaloff>../../../../.designer/backup/imgs/usb_icon.jpg</normaloff>../../../../.designer/backup/imgs/usb_icon.jpg</iconset>
             </property>
            </widget>
           </item>
@@ -243,7 +243,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/connect.png</normaloff>imgs/connect.png</iconset>
+              <normaloff>../../../../.designer/backup/imgs/connect.png</normaloff>../../../../.designer/backup/imgs/connect.png</iconset>
             </property>
            </widget>
           </item>
@@ -824,7 +824,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>imgs/play_button.png</normaloff>imgs/play_button.png</iconset>
+           <normaloff>../../../../.designer/backup/imgs/play_button.png</normaloff>../../../../.designer/backup/imgs/play_button.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -906,7 +906,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>imgs/pause_button_2.png</normaloff>imgs/pause_button_2.png</iconset>
+           <normaloff>../../../../.designer/backup/imgs/pause_button_2.png</normaloff>../../../../.designer/backup/imgs/pause_button_2.png</iconset>
          </property>
          <property name="iconSize">
           <size>
