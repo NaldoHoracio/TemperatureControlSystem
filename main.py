@@ -1,6 +1,6 @@
 import sys, time
 import aux_functions
-from tkinter import * 
+from tkinter import *
 from tkinter import messagebox
 from PyQt5.QtCore import QTime
 from PyQt5 import uic, QtWidgets
@@ -71,6 +71,8 @@ class TcsMainWindow(QMainWindow):
         '''
             Função do botão Play
         '''
+        top = Tk()
+        top.geometry("100x100")
         if self.button_mode1.isChecked() == True:
             if self.button_play.isChecked() == True:
                 messagebox.showinfo("Info", "Button Play pressed MODE 1")
@@ -81,12 +83,14 @@ class TcsMainWindow(QMainWindow):
                 messagebox.showinfo("Info", "Button Play pressed MODE 2")
             else:
                 messagebox.showinfo("Info", "Button Play unpressed MODE 2")
-
-    
+        top.mainloop()
+  
     def pause_button_function(self):
         '''
             Função do botão Pause
         '''
+        top = Tk()
+        top.geometry("100x100")
         if self.button_mode1.isChecked() == True:
             if self.button_pause.isChecked() == True:
                 messagebox.showinfo("Info", "Button Pause pressed MODE 1")
@@ -97,11 +101,14 @@ class TcsMainWindow(QMainWindow):
                 messagebox.showinfo("Info", "Button Pause pressed MODE 2")
             else:
                 messagebox.showinfo("Info", "Button Pause unpressed MODE 2")
+        top.mainloop()
     
     def cancel_button_function(self):
         '''
             Função do botão Cancel
         '''
+        top = Tk()
+        top.geometry("100x100")
         if self.button_mode1.isChecked() == True:
             if self.button_cancel.isChecked() == True:
                 messagebox.showinfo("Info", "Pressed Cancel MODE 1")
@@ -112,6 +119,7 @@ class TcsMainWindow(QMainWindow):
                 messagebox.showinfo("Info", "Pressed Cancel MODE 2")
             else:
                 messagebox.showinfo("Info", "Pressed Cancel MODE 2")
+        top.mainloop()
                 
                   
   
